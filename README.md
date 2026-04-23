@@ -97,8 +97,8 @@ Halliday & Resnick — Fundamentals of Physics
 👨‍💻 Autor
 
 deepw3b3D
-https://github.com/deepwebd3
+GitHub: https://github.com/deepwebd3
 
 ⚠️ Observação
 
-Projeto acadêmico voltado ao estudo de métodos numéricos aplicados a sistemas físicos.
+Projeto acadêmico voltado ao estudo de métodos numéricos aplicados a sistemas físicos.```
