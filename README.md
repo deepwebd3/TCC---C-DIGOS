@@ -12,62 +12,70 @@ O problema é modelado por uma **Equação Diferencial Ordinária (EDO)** resolv
 
 ## 🎯 Objetivos
 
-- Modelar a descarga elétrica do veículo  
-- Aplicar métodos de Runge-Kutta  
-- Comparar solução numérica e analítica  
-- Avaliar erro relativo  
+- Modelar a descarga elétrica do veículo
+- Aplicar métodos de Runge-Kutta
+- Comparar solução numérica e analítica
+- Avaliar erro relativo
 - Determinar tempo seguro (U < 50 mJ)
 
 ---
 
 ## ⚙️ Modelo Matemático
 
-dV/dt = -V / (R_eq * C)
+\[
+\frac{dV}{dt} = -\frac{V}{R_{eq}\,C}
+\]
 
-V(t) = V0 * exp(-t / (R_eq * C))
+\[
+V(t) = V_0 e^{-t/(R_{eq}C)}
+\]
 
-U(t) = (1/2) * C * V(t)^2
+\[
+U(t) = \frac{1}{2} C V(t)^2
+\]
 
 ---
 
 ## 🔬 Parâmetros
 
-- V₀ = 30 kV  
-- C = 500 pF  
-- R = 100 GΩ  
-- R_eq = R/4  
-- U_fogo = 50 mJ  
+- V₀ = 30 kV
+- C = 500 pF
+- R = 100 GΩ
+- R_eq = R/4
+- U_fogo = 50 mJ
 
 ---
 
 ## 🧪 Métodos
 
-- Euler (RK1)  
-- Heun (RK2)  
-- RK3  
-- RK4  
+- Euler (RK1)
+- Heun (RK2)
+- RK3
+- RK4
 
 ---
 
 ## 📊 Resultados
 
 ### Tensão
-![Tensão](GRAFICOS_PNG/grafico1.png)
+![Tensão](TCC_CODIGOS/GRAFICOS_PNG/grafico1.png)
 
 ### Comparação RK
-![Comparação RK](GRAFICOS_PNG/grafico2.png)
+![Comparação RK](TCC_CODIGOS/GRAFICOS_PNG/grafico2.png)
 
 ### Energia
-![Energia](GRAFICOS_PNG/grafico3.png)
+![Energia](TCC_CODIGOS/GRAFICOS_PNG/grafico3.png)
 
 ### Tensão e Energia
-![Tensão e Energia](GRAFICOS_PNG/tensao_energia.png)
+![Tensão e Energia](TCC_CODIGOS/GRAFICOS_PNG/tensao_energia.png)
 
 ---
 
-## 🎞️ Simulação
+## 🎞️ Simulação do circuito RC
 
-![Simulação RC](GRAFICOS_PNG/simulacao_rc.gif)
+![Simulação RC](TCC_CODIGOS/GRAFICOS_PNG/simulacao_rc.gif)
+
+---
 
 ## 🚀 Como executar
 
