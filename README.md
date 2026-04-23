@@ -36,7 +36,7 @@ $$
 
 ---
 
-## 🔬 Parâmetros do PROBLEMA 1
+## 🔬 Parâmetros de EX1 >>> carro-eletrizado
 
 | Parâmetro | Valor |
 |----------|------|
