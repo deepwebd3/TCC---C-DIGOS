@@ -1,3 +1,4 @@
+import os
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -98,6 +99,14 @@ for h in h_list:
     )
 
 # =====================================================
+# CAMINHO DE SAÍDA
+# =====================================================
+pasta_base = os.path.dirname(os.path.dirname(__file__))
+pasta_saida = os.path.join(pasta_base, "GRAFICOS_PNG")
+os.makedirs(pasta_saida, exist_ok=True)
+arquivo_saida = os.path.join(pasta_saida, "grafico1.png")
+
+# =====================================================
 # GRÁFICO FINAL: ERM x h
 # =====================================================
 plt.figure(figsize=(10, 5))
@@ -115,7 +124,7 @@ plt.xlabel(
     fontsize=14
 )
 plt.ylabel(
-    r'$\mathrm{ERM} $',
+    r'$\mathrm{ERM}$',
     fontname='Times New Roman',
     fontsize=14
 )
@@ -123,4 +132,6 @@ plt.title('')
 plt.grid(True, which='both', linestyle='--', alpha=0.5)
 plt.legend(fontsize=16)
 plt.tight_layout()
+plt.savefig(arquivo_saida, dpi=300, bbox_inches="tight")
 plt.show()
+plt.close()
