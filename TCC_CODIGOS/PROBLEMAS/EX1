@@ -1,126 +1,57 @@
 import math
 import numpy as np
-from typing import Callable, Tuple
 
 # ======================================================
 # MÉTODOS DE RUNGE–KUTTA - CARRO ELETRIZADO
 # ======================================================
-from typing import Callable, Tuple
-
-def _solve_ode(f: Callable[[float, float], float], x0: float, y0: float, h: float, n: int, rk_step: Callable) -> Tuple[np.ndarray, np.ndarray]:
-    """
-    General solver for ODEs using Runge-Kutta methods.
-
-    Args:
-        f: The function representing the ODE, dy/dx = f(x, y).
-        x0: Initial value of x.
-        y0: Initial value of y.
-        h: Step size.
-        n: Number of steps.
-        rk_step: A callable that computes the next y value based on the specific RK method.
-
-    Returns:
-        A tuple containing two numpy arrays:
-        - xs: Array of x values.
-        - ys: Array of y values.
-    """
+def rk1(f, x0, y0, h, n):
     x, y = x0, y0
     xs, ys = [x], [y]
     for _ in range(n):
-        y = rk_step(f, x, y, h)
+        y += h * f(x, y)
         x += h
         xs.append(x)
         ys.append(y)
     return np.array(xs), np.array(ys)
 
-def rk1(f: Callable[[float, float], float], x0: float, y0: float, h: float, n: int) -> Tuple[np.ndarray, np.ndarray]:
-    """
-    Solves an ODE using the Euler (RK1) method.
-
-    Args:
-        f: The function representing the ODE, dy/dx = f(x, y).
-        x0: Initial value of x.
-        y0: Initial value of y.
-        h: Step size.
-        n: Number of steps.
-
-    Returns:
-        A tuple containing two numpy arrays:
-        - xs: Array of x values.
-        - ys: Array of y values.
-    """
-    def rk1_step(f, x, y, h):
-        return y + h * f(x, y)
-    return _solve_ode(f, x0, y0, h, n, rk1_step)
-
-def rk2(f: Callable[[float, float], float], x0: float, y0: float, h: float, n: int) -> Tuple[np.ndarray, np.ndarray]:
-    """
-    Solves an ODE using the Runge-Kutta 2nd order method (Heun's method).
-
-    Args:
-        f: The function representing the ODE, dy/dx = f(x, y).
-        x0: Initial value of x.
-        y0: Initial value of y.
-        h: Step size.
-        n: Number of steps.
-
-    Returns:
-        A tuple containing two numpy arrays:
-        - xs: Array of x values.
-        - ys: Array of y values.
-    """
-    def rk2_step(f, x, y, h):
+def rk2(f, x0, y0, h, n):
+    x, y = x0, y0
+    xs, ys = [x], [y]
+    for _ in range(n):
         k1 = f(x, y)
         k2 = f(x + h, y + h*k1)
-        return y + (h/2)*(k1 + k2)
-    return _solve_ode(f, x0, y0, h, n, rk2_step)
+        y += (h/2)*(k1 + k2)
+        x += h
+        xs.append(x)
+        ys.append(y)
+    return np.array(xs), np.array(ys)
 
-def rk3(f: Callable[[float, float], float], x0: float, y0: float, h: float, n: int) -> Tuple[np.ndarray, np.ndarray]:
-    """
-    Solves an ODE using the Runge-Kutta 3rd order method.
-
-    Args:
-        f: The function representing the ODE, dy/dx = f(x, y).
-        x0: Initial value of x.
-        y0: Initial value of y.
-        h: Step size.
-        n: Number of steps.
-
-    Returns:
-        A tuple containing two numpy arrays:
-        - xs: Array of x values.
-        - ys: Array of y values.
-    """
-    def rk3_step(f, x, y, h):
+def rk3(f, x0, y0, h, n):
+    x, y = x0, y0
+    xs, ys = [x], [y]
+    for _ in range(n):
         k1 = f(x, y)
         k2 = f(x + h/2, y + h*k1/2)
         k3 = f(x + h, y - h*k1 + 2*h*k2)
-        return y + (h/6)*(k1 + 4*k2 + k3)
-    return _solve_ode(f, x0, y0, h, n, rk3_step)
+        y += (h/6)*(k1 + 4*k2 + k3)
+        x += h
+        xs.append(x)
+        ys.append(y)
+    return np.array(xs), np.array(ys)
 
-def rk4(f: Callable[[float, float], float], x0: float, y0: float, h: float, n: int) -> Tuple[np.ndarray, np.ndarray]:
-    """
-    Solves an ODE using the Runge-Kutta 4th order method.
-
-    Args:
-        f: The function representing the ODE, dy/dx = f(x, y).
-        x0: Initial value of x.
-        y0: Initial value of y.
-        h: Step size.
-        n: Number of steps.
-
-    Returns:
-        A tuple containing two numpy arrays:
-        - xs: Array of x values.
-        - ys: Array of y values.
-    """
-    def rk4_step(f, x, y, h):
+def rk4(f, x0, y0, h, n):
+    x, y = x0, y0
+    xs, ys = [x], [y]
+    for _ in range(n):
         k1 = f(x, y)
         k2 = f(x + h/2, y + h*k1/2)
         k3 = f(x + h/2, y + h*k2/2)
         k4 = f(x + h, y + h*k3)
-        return y + (h/6)*(k1 + 2*k2 + 2*k3 + k4)
-    return _solve_ode(f, x0, y0, h, n, rk4_step)
+        y += (h/6)*(k1 + 2*k2 + 2*k3 + k4)
+        x += h
+        xs.append(x)
+        ys.append(y)
+    return np.array(xs), np.array(ys)
 
 # ======================================================
 # DADOS DO PROBLEMA
@@ -131,98 +62,34 @@ R  = 25e9
 U_fogo = 50e-3
 tau = R * C
 
-
-def f(t: float, V: float) -> float:
-    """
-    Defines the differential equation for the problem.
-
-    Args:
-        t: Time.
-        V: Voltage.
-
-    Returns:
-        The derivative of V with respect to t.
-    """
+def f(t, V):
     return -V / tau
 
-def V_analytic(t: float) -> float:
-    """
-    Calculates the analytical solution for the voltage at a given time.
-
-    Args:
-        t: Time.
-
-    Returns:
-        Analytical voltage at time t.
-    """
+def V_analytic(t):
     return V0 * np.exp(-t / tau)
 
-def print_results_table(h_list: list, t_max: float, metodos: dict,
-                        f: Callable[[float, float], float], V_analytic: Callable[[float], float],
-                        V0: float, C: float, U_fogo: float, tau: float):
-    """
-    Prints a formatted table of numerical simulation results.
-    """
-    print("\nANÁLISE DE CONVERGÊNCIA – VARIAÇÃO DO PASSO h\n")
-    print(f"{'h':<8} | {'Método':<6} | {'Tempo Numérico (s)':>20} | {'Erro Relativo Médio':>22}")
-    print("-"*70)
+energia_i = 0.5 * C * V0**2
+t_analitico = -(tau / 2) * math.log(U_fogo / energia_i)
 
-    for h in h_list:
-        n = int(t_max / h)
+# ======================================================
+# TAMANHOS DE PASSO
+# ======================================================
+h_list = [0.1, 0.01, 0.001]
+t_max = 30.0
 
-        for nome, metodo in metodos.items():
-            t_vals, V_vals = metodo(f, 0.0, V0, h, n)
-            U_vals = 0.5 * C * V_vals**2
+metodos = {
+    "RK1": rk1,
+    "RK2": rk2,
+    "RK3": rk3,
+    "RK4": rk4
+}
 
-            # Cruzamento da energia
-            idx = np.where(U_vals < U_fogo)[0]
-            if len(idx) > 0 and idx[0] > 0:
-                i = idx[0]
-                t1, t2 = t_vals[i-1], t_vals[i]
-                U1, U2 = U_vals[i-1], U_vals[i]
-
-                # Handle division by zero if U2 - U1 is very small
-                if abs(U2 - U1) < np.finfo(float).eps:
-                    frac = 0.0  # Or handle as an error/specific case
-                else:
-                    frac = (U_fogo - U1) / (U2 - U1)
-
-                t_num = t1 + frac * (t2 - t1)
-            else:
-                t_num = np.nan
-
-            # Erro relativo médio
-            V_ex = V_analytic(t_vals)
-            eps = np.finfo(float).eps
-            erro = np.mean(np.abs((V_vals - V_ex) / np.maximum(np.abs(V_ex), eps)))
-
-            print(f"{h:<8.3e} | {nome:<6} | {t_num:>20.8f} | {erro:>22.6e}")
-
-        print("-"*70)
-
-
-if __name__ == "__main__":
-    V0 = 3.0e4
-    C  = 500e-12
-    R  = 25e9
-    U_fogo = 50e-3
-    tau = R * C
-
-    energia_i = 0.5 * C * V0**2
-    t_analitico = -(tau / 2) * math.log(U_fogo / energia_i)
-
-    h_list = [0.1, 0.01, 0.001]
-    t_max = 30.0
-
-    metodos = {
-        "RK1": rk1,
-        "RK2": rk2,
-        "RK3": rk3,
-        "RK4": rk4
-    }
-
-    print_results_table(h_list, t_max, metodos, f, V_analytic, V0, C, U_fogo, tau)
-
+# ======================================================
+# TABELA DE RESULTADOS
+# ======================================================
+print("\nANÁLISE DE CONVERGÊNCIA – VARIAÇÃO DO PASSO h\n")
+print(f"{'h':<8} | {'Método':<6} | {'Tempo Numérico (s)':>20} | {'Erro Relativo Médio':>22}")
+print("-"*70)
 
 for h in h_list:
     n = int(t_max / h)
