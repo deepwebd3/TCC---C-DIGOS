@@ -2,11 +2,11 @@
 
 ## 📌 Descrição
 
-Este projeto investiga o fenômeno de eletrização de um automóvel em movimento causado pelo atrito com o solo, modelando o sistema como um circuito elétrico do tipo **Resistor-Capacitor (RC)**.
+Este projeto investiga o fenômeno de eletrização de um automóvel em movimento causado pelo atrito com o solo, modelando o sistema como um circuito elétrico do tipo **Resistor-Capacitor (RC)**. Além disso, estuda também, **dois circuitos do tipo RC** de forma separada, onde, o EX2 é um circuito RC descarregando e o EX3 um circuito RC carregando.
 
 Durante o movimento, o veículo acumula carga elétrica e, ao parar, essa carga é dissipada pelos pneus. Caso a descarga não seja completa, pode ocorrer uma centelha capaz de inflamar combustível.
 
-O problema é descrito por uma **Equação Diferencial Ordinária (EDO)** de primeira ordem, cuja solução é obtida por métodos numéricos de **Runge-Kutta (RK1 a RK4)**.
+Os problemas são descritos por uma **Equação Diferencial Ordinária (EDO)** de primeira ordem, cuja solução é obtida por métodos numéricos de **Runge-Kutta (RK1 a RK4)**.
 
 ---
 
@@ -19,8 +19,6 @@ O problema é descrito por uma **Equação Diferencial Ordinária (EDO)** de pri
 - Determinar o tempo seguro para evitar ignição (U < 50 mJ)
 
 ---
-
-## ⚙️ Modelo Matemático
 
 ## ⚙️ Modelo Matemático
 
@@ -38,7 +36,7 @@ $$
 
 ---
 
-## 🔬 Parâmetros do Sistema
+## 🔬 Parâmetros do PROBLEMA 1
 
 | Parâmetro | Valor |
 |----------|------|
@@ -61,16 +59,16 @@ $$
 
 ## 📊 Resultados
 
-### 🔹 Tensão ao longo do tempo
+### 🔹 Comparação dos métodos para o EX 1 - carro-eletrizado
 ![Tensão](TCC_CODIGOS/GRAFICOS_PNG/grafico1.png)
 
-### 🔹 Comparação entre métodos RK
+### 🔹 Comparação dos métodos para o EX 2 - circuito RC descarregando
 ![Comparação RK](TCC_CODIGOS/GRAFICOS_PNG/grafico2.png)
 
-### 🔹 Energia armazenada
+### 🔹 Comparação dos métodos para o EX 3 - circuito RC carregando
 ![Energia](TCC_CODIGOS/GRAFICOS_PNG/grafico3.png)
 
-### 🔹 Tensão × Energia
+### 🔹 Relação de tensão e energia para o EX1 - carro-eletrizado
 ![Tensão e Energia](TCC_CODIGOS/GRAFICOS_PNG/tensao_energia.png)
 
 ---
