@@ -6,24 +6,24 @@ Este projeto investiga o fenômeno de eletrização de um automóvel em moviment
 
 Durante o movimento, o veículo acumula carga elétrica e, ao parar, essa carga é dissipada pelos pneus. Caso a descarga não seja completa, pode ocorrer uma centelha capaz de inflamar combustível.
 
-O problema é modelado por uma **Equação Diferencial Ordinária (EDO)** resolvida por métodos de **Runge-Kutta (RK1 a RK4)**.
+O problema é descrito por uma **Equação Diferencial Ordinária (EDO)** de primeira ordem, cuja solução é obtida por métodos numéricos de **Runge-Kutta (RK1 a RK4)**.
 
 ---
 
 ## 🎯 Objetivos
 
-- Modelar a descarga elétrica do veículo
-- Aplicar métodos de Runge-Kutta
-- Comparar solução numérica e analítica
-- Avaliar erro relativo
-- Determinar tempo seguro (U < 50 mJ)
+- Modelar a descarga elétrica do veículo como circuito RC  
+- Aplicar métodos de Runge-Kutta (RK1 a RK4)  
+- Comparar soluções numéricas com a solução analítica  
+- Avaliar o erro relativo dos métodos  
+- Determinar o tempo seguro para evitar ignição (U < 50 mJ)
 
 ---
 
 ## ⚙️ Modelo Matemático
 
 \[
-\frac{dV}{dt} = -\frac{V}{R_{eq}\,C}
+\frac{dV}{dt} = -\frac{V}{R_{eq}C}
 \]
 
 \[
@@ -36,42 +36,44 @@ U(t) = \frac{1}{2} C V(t)^2
 
 ---
 
-## 🔬 Parâmetros
+## 🔬 Parâmetros do Sistema
 
-- V₀ = 30 kV
-- C = 500 pF
-- R = 100 GΩ
-- R_eq = R/4
-- U_fogo = 50 mJ
+| Parâmetro | Valor |
+|----------|------|
+| Tensão inicial (V₀) | 30 kV |
+| Capacitância (C) | 500 pF |
+| Resistência dos pneus (R) | 100 GΩ |
+| Resistência equivalente (R_eq) | R / 4 |
+| Energia crítica (U_fogo) | 50 mJ |
 
 ---
 
-## 🧪 Métodos
+## 🧪 Métodos Numéricos Utilizados
 
-- Euler (RK1)
-- Heun (RK2)
-- RK3
-- RK4
+- Euler (RK1)  
+- Heun (RK2)  
+- Runge-Kutta de 3ª ordem (RK3)  
+- Runge-Kutta de 4ª ordem (RK4)
 
 ---
 
 ## 📊 Resultados
 
-### Tensão
+### 🔹 Tensão ao longo do tempo
 ![Tensão](TCC_CODIGOS/GRAFICOS_PNG/grafico1.png)
 
-### Comparação RK
+### 🔹 Comparação entre métodos RK
 ![Comparação RK](TCC_CODIGOS/GRAFICOS_PNG/grafico2.png)
 
-### Energia
+### 🔹 Energia armazenada
 ![Energia](TCC_CODIGOS/GRAFICOS_PNG/grafico3.png)
 
-### Tensão e Energia
+### 🔹 Tensão × Energia
 ![Tensão e Energia](TCC_CODIGOS/GRAFICOS_PNG/tensao_energia.png)
 
 ---
 
-## 🎞️ Simulação do circuito RC
+## 🎞️ Simulação do Circuito RC
 
 ![Simulação RC](TCC_CODIGOS/GRAFICOS_PNG/simulacao_rc.gif)
 
@@ -79,26 +81,18 @@ U(t) = \frac{1}{2} C V(t)^2
 
 ## 🚀 Como executar
 
-bash
+```bash
 git clone https://github.com/deepwebd3/TCC---C-DIGOS.git
 cd TCC---C-DIGOS
+
+# Criar ambiente virtual
 python -m venv .venv
-.venv\Scripts\activate
+
+# Ativar (Windows PowerShell)
+.venv\Scripts\Activate.ps1
+
+# Instalar dependências
 pip install -r requirements.txt
-python TCC_CODIGOS/EX3.py```
 
-🛠️ Tecnologias
-Python
-NumPy
-Matplotlib
-📚 Referências
-Chapra & Canale — Numerical Methods for Engineers
-Halliday & Resnick — Fundamentals of Physics
-👨‍💻 Autor
-
-deepw3b3D
-GitHub: https://github.com/deepwebd3
-
-⚠️ Observação
-
-Projeto acadêmico voltado ao estudo de métodos numéricos aplicados a sistemas físicos.
+# Executar simulação
+python TCC_CODIGOS/EX3.py
