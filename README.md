@@ -57,7 +57,7 @@ $$
 
 ---
 
-## 📊 Resultados
+## 📊 Gráficos
 
 ### 🔹 Comparação dos métodos para o EX 1 - carro-eletrizado
 ![Tensão](TCC_CODIGOS/GRAFICOS_PNG/grafico1.png)
