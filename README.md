@@ -52,22 +52,22 @@ U(t) = (1/2) * C * V(t)^2
 ## 📊 Resultados
 
 ### Tensão
-![Tensão](TCC_CODIGOS/GRAFICOS_PNG/grafico1.png)
+![Tensão](GRAFICOS_PNG/grafico1.png)
 
 ### Comparação RK
-![Comparação RK](TCC_CODIGOS/GRAFICOS_PNG/grafico2.png)
+![Comparação RK](GRAFICOS_PNG/grafico2.png)
 
 ### Energia
-![Energia](TCC_CODIGOS/GRAFICOS_PNG/grafico3.png)
+![Energia](GRAFICOS_PNG/grafico3.png)
 
 ### Tensão e Energia
-![Tensão e Energia](TCC_CODIGOS/GRAFICOS_PNG/tensao_energia.png)
+![Tensão e Energia](GRAFICOS_PNG/tensao_energia.png)
 
 ---
 
 ## 🎞️ Simulação do circuito RC
 
-![Simulação RC](TCC_CODIGOS/GRAFICOS_PNG/simulacao_rc.gif)
+![Simulação RC](GRAFICOS_PNG/simulacao_rc.gif)
 ---
 
 ## 🚀 Como executar
