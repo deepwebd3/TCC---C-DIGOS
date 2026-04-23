@@ -22,17 +22,19 @@ O problema é descrito por uma **Equação Diferencial Ordinária (EDO)** de pri
 
 ## ⚙️ Modelo Matemático
 
-\[
+## ⚙️ Modelo Matemático
+
+$$
 \frac{dV}{dt} = -\frac{V}{R_{eq}C}
-\]
+$$
 
-\[
+$$
 V(t) = V_0 e^{-t/(R_{eq}C)}
-\]
+$$
 
-\[
+$$
 U(t) = \frac{1}{2} C V(t)^2
-\]
+$$
 
 ---
 
