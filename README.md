@@ -59,13 +59,13 @@ $$
 
 ## 📊 Gráficos
 
-### 🔹 Comparação dos métodos para o EX 1 - carro-eletrizado
+### 🔹 Comparação dos métodos de RK para o EX 1 - carro-eletrizado
 ![Tensão](TCC_CODIGOS/GRAFICOS_PNG/grafico1.png)
 
-### 🔹 Comparação dos métodos para o EX 2 - circuito RC descarregando
+### 🔹 Comparação dos métodos de RK para o EX 2 - circuito RC descarregando
 ![Comparação RK](TCC_CODIGOS/GRAFICOS_PNG/grafico2.png)
 
-### 🔹 Comparação dos métodos para o EX 3 - circuito RC carregando
+### 🔹 Comparação dos métodos de RK para o EX 3 - circuito RC carregando
 ![Energia](TCC_CODIGOS/GRAFICOS_PNG/grafico3.png)
 
 ### 🔹 Relação de tensão e energia para o EX1 - carro-eletrizado
