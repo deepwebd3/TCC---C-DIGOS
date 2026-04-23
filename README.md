@@ -1,12 +1,12 @@
-# ⚡ Circuito Solver + Métodos de Runge-Kutta
+# ⚡ ESTUDO DOS METODOS DE RUNGE-KUTTA DE PRIMEIRA A QUARTA ORDEM APLICADOS A CIRCUITOS ELÉTRICOS RC
 
 ## 📌 Descrição
 
-Este projeto investiga o fenômeno de eletrização de um automóvel em movimento causado pelo atrito com o solo, modelando o sistema como um circuito elétrico do tipo **Resistor-Capacitor (RC)**. Além disso, estuda também, **dois circuitos do tipo RC** de forma separada, onde, o EX2 é um circuito RC descarregando e o EX3 um circuito RC carregando.
+Este projeto investiga o fenômeno de eletrização de um automóvel em movimento causado pelo atrito com o solo, modelando o sistema como um circuito **elétrico do tipo Resistor-Capacitor (RC)**. Além disso, são analisados dois circuitos RC de forma independente: o EX2, que representa um processo de descarga, e o EX3, que descreve o carregamento do circuito.
 
-Durante o movimento, o veículo acumula carga elétrica e, ao parar, essa carga é dissipada pelos pneus. Caso a descarga não seja completa, pode ocorrer uma centelha capaz de inflamar combustível.
+Durante o movimento, o veículo acumula carga elétrica e, ao parar, essa carga é dissipada pelos pneus. Caso a descarga não ocorra completamente, pode surgir uma diferença de potencial capaz de gerar uma centelha e inflamar o combustível.
 
-Os problemas são descritos por uma **Equação Diferencial Ordinária (EDO)** de primeira ordem, cuja solução é obtida por métodos numéricos de **Runge-Kutta (RK1 a RK4)**.
+Os problemas são descritos por **Equações Diferenciais Ordinárias (EDOs)** de primeira ordem, cujas soluções são obtidas por meio de métodos **numéricos de Runge-Kutta (RK1 a RK4)**.
 
 ---
 
