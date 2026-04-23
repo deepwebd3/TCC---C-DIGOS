@@ -1,0 +1,42 @@
+def runge_kutta_1(f, x0, y0, h, n):
+    """
+    Método de Runge-Kutta de 1ª ordem (Euler) para resolver dy/dx = f(x, y)
+    
+    Parâmetros:
+        f  : função que define a EDO dy/dx = f(x,y)
+        x0 : valor inicial de x
+        y0 : valor inicial de y
+        h  : passo de integração
+        n  : número de passos
+    Retorna:
+        listas de valores de x e y
+    """
+    x_vals = [x0]
+    y_vals = [y0]
+    
+    x = x0
+    y = y0
+    
+    for i in range(n):
+        x = x + h
+        y = y + h * f(x, y)  # Método de Euler
+        x_vals.append(x)
+        y_vals.append(y)
+    
+    return x_vals, y_vals
+
+# Exemplo de uso
+if __name__ == "__main__":
+    # Exemplo: dy/dx = x + y
+    def f(x, y):
+        return x + y
+
+    x0 = 0
+    y0 = 1
+    h = 0.1
+    n = 20
+
+    x_vals, y_vals = runge_kutta_1(f, x0, y0, h, n)
+
+    for i in range(len(x_vals)):
+        print(f"x = {x_vals[i]:.2f}, y = {y_vals[i]:.4f}")

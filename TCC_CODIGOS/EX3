@@ -1,0 +1,119 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# ===============================================
+# MÉTODOS DE RUNGE-KUTTA - APLICAÇÃO DA CARGA RC
+# ===============================================
+
+def rk1(f, t0, tf, y0, h):
+    n = int(round((tf - t0)/h))
+    t = np.linspace(t0, tf, n+1)
+    y = np.zeros(n+1)
+    y[0] = y0
+    for i in range(n):
+        y[i+1] = y[i] + h * f(t[i], y[i])
+    return t, y
+
+def rk2(f, t0, tf, y0, h):
+    n = int(round((tf - t0)/h))
+    t = np.linspace(t0, tf, n+1)
+    y = np.zeros(n+1)
+    y[0] = y0
+    for i in range(n):
+        k1 = f(t[i], y[i])
+        k2 = f(t[i] + h, y[i] + h*k1)
+        y[i+1] = y[i] + (h/2)*(k1 + k2)
+    return t, y
+
+def rk3(f, t0, tf, y0, h):
+    n = int(round((tf - t0)/h))
+    t = np.linspace(t0, tf, n+1)
+    y = np.zeros(n+1)
+    y[0] = y0
+    for i in range(n):
+        k1 = f(t[i], y[i])
+        k2 = f(t[i] + h/2, y[i] + h*k1/2)
+        k3 = f(t[i] + h, y[i] - h*k1 + 2*h*k2)
+        y[i+1] = y[i] + h*(k1 + 4*k2 + k3)/6
+    return t, y
+
+def rk4(f, t0, tf, y0, h):
+    n = int(round((tf - t0)/h))
+    t = np.linspace(t0, tf, n+1)
+    y = np.zeros(n+1)
+    y[0] = y0
+    for i in range(n):
+        k1 = f(t[i], y[i])
+        k2 = f(t[i] + h/2, y[i] + h*k1/2)
+        k3 = f(t[i] + h/2, y[i] + h*k2/2)
+        k4 = f(t[i] + h, y[i] + h*k3)
+        y[i+1] = y[i] + (h/6)*(k1 + 2*k2 + 2*k3 + k4)
+    return t, y
+
+# ===========================================
+# FUNÇÃO DO ERRO RELATIVO MÉDIO
+# ===========================================
+
+def erro_relativo_medio(y_a, y_n):
+    mask = np.abs(y_a) > 1e-12
+    if np.any(mask):
+        return np.mean(np.abs((y_a[mask] - y_n[mask]) / y_a[mask]))
+    return np.nan
+
+# ===========================================
+# PARÂMETROS DO CIRCUITO
+# ===========================================
+
+Is = 7.5e-3     # 7.5 mA
+R1 = 20e3       # 20 kΩ
+C  = 5e-6       # 5 µF
+
+V_th = Is * R1
+tau  = R1 * C
+
+# tempo total da simulação
+t_final = 1.0
+
+def f_carga(t, v):
+    return (V_th - v) / tau
+
+# ===========================================
+# PASSOS E MÉTODOS ( CARGA )
+# ===========================================
+
+passos = {
+    "h = 0.1":   0.001,
+    "h = 0.01":  0.0001,
+    "h = 0.001": 0.00001
+}
+
+metodos = {
+    "RK1 (Euler)": rk1,
+    "RK2 (Heun)":  rk2,
+    "RK3":         rk3,
+    "RK4":         rk4
+}
+
+print("\n===== EXEMPLO – CARGA DO CAPACITOR =====")
+print(f"V_th = {V_th:.6f} V, tau = {tau:.6e} s\n")
+
+# ===========================================
+# TABELA FINAL – RESULTADOS DA CARGA
+# ===========================================
+
+print("--------------------------------------------------------------------------------------------------------------------------------")
+print("|   h    |     Método     |   V_num_final (V)   |   V_exato_final (V)   |    ERM (Erro Médio)    |   Erro Final   |")
+print("--------------------------------------------------------------------------------------------------------------------------------")
+
+for nome_h, h in passos.items():
+    for nome_metodo, metodo in metodos.items():
+
+        t_num, v_num = metodo(f_carga, 0, t_final, 0, h)
+        v_exato = V_th * (1 - np.exp(-t_num/tau))
+
+        erm = erro_relativo_medio(v_exato, v_num)
+        erro_final = abs((v_exato[-1] - v_num[-1]) / v_exato[-1])
+
+        print(f"| {h:<5} | {nome_metodo:<15} | {v_num[-1]:>18.8f} | {v_exato[-1]:>20.8f} | {erm:>22.3e} | {erro_final:>13.3e} |")
+
+print("--------------------------------------------------------------------------------------------------------------------------------")
