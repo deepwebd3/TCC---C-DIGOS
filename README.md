@@ -79,7 +79,7 @@ U(t) = \frac{1}{2} C V(t)^2
 
 ## 🚀 Como executar
 
-```bash
+bash
 git clone https://github.com/deepwebd3/TCC---C-DIGOS.git
 cd TCC---C-DIGOS
 python -m venv .venv
