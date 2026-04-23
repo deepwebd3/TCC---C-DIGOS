@@ -85,7 +85,7 @@ cd TCC---C-DIGOS
 python -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements.txt
-python TCC_CODIGOS/EX3.py
+python TCC_CODIGOS/EX3.py```
 
 🛠️ Tecnologias
 Python
@@ -101,4 +101,4 @@ GitHub: https://github.com/deepwebd3
 
 ⚠️ Observação
 
-Projeto acadêmico voltado ao estudo de métodos numéricos aplicados a sistemas físicos.```
+Projeto acadêmico voltado ao estudo de métodos numéricos aplicados a sistemas físicos.
