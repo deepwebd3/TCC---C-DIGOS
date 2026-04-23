@@ -65,10 +65,9 @@ U(t) = (1/2) * C * V(t)^2
 
 ---
 
-## 🎞️ Simulação do circuito RC
+## 🎞️ Simulação
 
 ![Simulação RC](GRAFICOS_PNG/simulacao_rc.gif)
----
 
 ## 🚀 Como executar
 
