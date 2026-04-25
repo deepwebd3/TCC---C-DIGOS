@@ -11,3 +11,12 @@ scipy>=1.10
 
 # Leitura/manipulação de dados (opcional)
 pandas>=2.0
+
+# Para resolver o problema de otimização (se necessário)
+# PuLP é uma biblioteca de modelagem de otimização linear
+pulp>=2.8   
+
+# Se for usar um solver específico, como CBC, GLPK ou Gurobi, pode ser necessário instalar o solver e a interface correspondente.
+# Exemplo para CBC:
+pulp[cbc]>=2.8
+
