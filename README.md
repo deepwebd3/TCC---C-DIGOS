@@ -1,4 +1,4 @@
-# ⚡ ESTUDO DOS METODOS DE RUNGE-KUTTA DE PRIMEIRA A QUARTA ORDEM APLICADOS A CIRCUITOS ELÉTRICOS RC
+# ⚡ESTUDO DA DINÂMICA DE DESCARGA DE CIRCUITOS RC POR MÉTODOS NUMÉRICOS
 
 ## 📌 Descrição
 
@@ -7,6 +7,16 @@ Este projeto investiga o fenômeno de eletrização de um automóvel em moviment
 Durante o movimento, o veículo acumula carga elétrica e, ao parar, essa carga é dissipada pelos pneus. Caso a descarga não ocorra completamente, pode surgir uma diferença de potencial capaz de gerar uma centelha e inflamar o combustível.
 
 Os problemas são descritos por **Equações Diferenciais Ordinárias (EDOs)** de primeira ordem, cujas soluções são obtidas por meio de métodos **numéricos de Runge-Kutta (RK1 a RK4)**.
+
+## 📌 Problema : carro-eletrizado
+
+Umautomóvel de competição em movimento pode acumular carga elétrica devido
+ao atrito, comportando-se como um capacitor. Ao desacelerar, essa carga é dissipada gradualmente
+pelos pneus, que atuam como resistores, conforme Figura 2. Se o abastecimento ocorrer antes da
+descarga completa, a diferença de potencial pode gerar uma centelha capaz de inflamar o combustí
+vel, caso a energia ultrapasse Ufogo = 50 mJ. Considerando V0 = 30 kV, C = 500 pF e resistência
+dos pneus R = 25×109 Ω,queremosdeterminarotemponecessárioparaque aenergia armazenada
+no circuito fique abaixo do valor crítico.
 
 ---
 
