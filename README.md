@@ -1,6 +1,6 @@
 # ⚡ESTUDO DA DINÂMICA DE DESCARGA DE CIRCUITOS RC POR MÉTODOS NUMÉRICOS
 
-## 📌 Descrição
+## 📌 Introdução
 
 Este projeto investiga o fenômeno de eletrização de um automóvel em movimento causado pelo atrito com o solo, modelando o sistema como um circuito **elétrico do tipo Resistor-Capacitor (RC)**. Além disso, são analisados dois circuitos RC de forma independente: o EX2, que representa um processo de descarga, e o EX3, que descreve o carregamento do circuito.
 
