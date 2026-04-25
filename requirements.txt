@@ -1,0 +1,13 @@
+numpy>=1.24
+
+# Visualização (caso use gráficos depois)
+matplotlib>=3.7
+
+# Estruturas de grafos (se usar no solver)
+networkx>=3.1
+
+# Análise científica (opcional, mas útil)
+scipy>=1.10
+
+# Leitura/manipulação de dados (opcional)
+pandas>=2.0
